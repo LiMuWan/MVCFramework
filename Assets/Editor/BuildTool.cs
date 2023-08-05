@@ -9,7 +9,11 @@ public class BuildTool
     [MenuItem("Tools/BuildAndroid")]
     public static void BuildAndroid()
     {
-        string[] levels = {"Assets/Scene/1.unity"};
+         string[] levels = new string[EditorBuildSettings.scenes.Length];
+        for(int i = 0;i< EditorBuildSettings.scenes.Length;i++)
+        {
+            levels[i] = EditorBuildSettings.scenes[i].path;
+        }
         string locationPath = Application.dataPath + "/../Bin/";
         string locationApkPath = locationPath + "test.apk";
 
